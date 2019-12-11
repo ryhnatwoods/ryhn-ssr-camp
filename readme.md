@@ -48,3 +48,21 @@ Require stack:
 
 配置文件的文件名写错了。webpack.sever.js -> webpack.server.js
 
+concurrently lib能够同时跑多个命令
+
+staticrouter -> 服务端路由
+browserrouter -> 前端路由
+
+TypeError: Cannot read property 'location' of undefined
+[2]     at new Router (/Users/wangning/Desktop/ryhn-ssr-camp/node_modules/react-router/cjs/react-router.js:89:31)
+[2]     at processChild (/Users/wangning/Desktop/ryhn-ssr-camp/node_modules/react-dom/cjs/react-dom-server.node.development.js:3159:14)
+[2]     at resolve (/Users/wangning/Desktop/ryhn-ssr-camp/node_modules/react-dom/cjs/react-dom-server.node.development.js:3124:5)
+[2]     at ReactDOMServerRenderer.render (/Users/wangning/Desktop/ryhn-ssr-camp/node_modules/react-dom/cjs/react-dom-server.node.development.js:3598:22)
+[2]     at ReactDOMServerRenderer.read (/Users/wangning/Desktop/ryhn-ssr-camp/node_modules/react-dom/cjs/react-dom-server.node.development.js:3536:29)
+[2]     at renderToString (/Users/wangning/Desktop/ryhn-ssr-camp/node_modules/react-dom/cjs/react-dom-server.node.development.js:4245:27)
+[2]     at eval (webpack:///./server/index.js?:20:88)
+[2]     at Layer.handle [as handle_request] (/Users/wangning/Desktop/ryhn-ssr-camp/node_modules/express/lib/router/layer.js:95:5)
+[2]     at next (/Users/wangning/Desktop/ryhn-ssr-camp/node_modules/express/lib/router/route.js:137:13)
+[2]     at Route.dispatch (/Users/wangning/Desktop/ryhn-ssr-camp/node_modules/express/lib/router/route.js:112:3)
+
+这个issue是因为在注册路由时错误的使用了Router标签而不是Route标签

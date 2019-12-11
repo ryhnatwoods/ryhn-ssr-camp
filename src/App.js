@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
+import { Route } from 'react-router-dom'
+import Index from './container/Index'
+import About from './container/About'
 
-function App(props) {
-    const [count, setCount] = useState(1);
-    return <>
-                <h1>This is my demo react SSR, provied by {props.title}</h1>
-                <p>if you like it, please star it. current star is {count}🌟</p>
-                <button onClick={() => setCount(count+1)}>点赞👍</button>
-           </>
-}
-
-export default <App title="开课吧"></App>
+export default (
+    <>
+        <Route path="/" exact component={Index}></Route>
+        <Route path="/about" exact component={About}></Route>
+    </>
+);
