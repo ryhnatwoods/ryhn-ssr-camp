@@ -4,7 +4,10 @@ import { getIndexList } from '../action/mainAction'
 function Index(props) {
     const [count, setCount] = useState(1);
     useEffect(() => {
-        props.getIndexList();
+        const size = props.list.length;
+        if(size === 0){
+            props.getIndexList();
+        }
     }, [])
     return <>
                 <h1>This is my demo react SSR, provied by {props.title}</h1>
@@ -19,6 +22,11 @@ function Index(props) {
                     }
                 </ul>
            </>
+}
+
+Index.loadData = (store) => {
+    //通过传递全局的store对象，手动派发一个更新store的操作
+    return store.dispatch(getIndexList());
 }
 
 export default connect(

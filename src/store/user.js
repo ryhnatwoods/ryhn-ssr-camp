@@ -1,16 +1,16 @@
-import { GET_LIST } from "../action/mainAction"
+import { GET_USERINFO } from "../action/userAction"
 
 const defaultState = {
-    list: []
+    data: []
 }
 
 export default (state=defaultState, action) => {
     switch(action.type){
-        case GET_LIST:
+        case GET_USERINFO:
             console.log("data: ", action);
             return {
                 ...state,
-                list: action.list
+                data: action.data
             }
         default:
             return state

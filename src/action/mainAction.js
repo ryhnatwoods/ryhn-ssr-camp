@@ -1,4 +1,5 @@
-import axios from 'axios'
+// import axios from 'axios'
+import axiosIns from '../utils/axiosInstance'
 
 //action type
 const GET_LIST = "INDEX/GET_LIST";
@@ -11,10 +12,15 @@ const changeList = list => ({
 //异步请求
 const getIndexList = () => {
     return dispatch => {
-        return axios.get("http://localhost:9090/api/course/list").then(res => {
+        return axiosIns.get("/api/course/list").then(res => {
             const {list} = res.data;
-            dispatch(changeList(list))
-        })
+            console.log("update list: ", list);
+            dispatch(changeList(list));
+        }).then(null,
+            err => {
+                console.log("Error: ", err);
+                return Promise.resolve();
+        });
     }
 }
 

@@ -66,3 +66,9 @@ TypeError: Cannot read property 'location' of undefined
 [2]     at Route.dispatch (/Users/wangning/Desktop/ryhn-ssr-camp/node_modules/express/lib/router/route.js:112:3)
 
 这个issue是因为在注册路由时错误的使用了Router标签而不是Route标签
+
+实现node服务器端预加载数据。
+
+通过捕获异常信息设置Promise.resolve的方式。使promise不会中断执行。
+
+配置proxy，允许非跨域的网络请求
