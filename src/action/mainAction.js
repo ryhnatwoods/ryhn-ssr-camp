@@ -1,6 +1,3 @@
-// import axios from 'axios'
-import axiosIns from '../utils/axiosInstance'
-
 //action type
 const GET_LIST = "INDEX/GET_LIST";
 //action creator
@@ -11,8 +8,8 @@ const changeList = list => ({
 
 //异步请求
 const getIndexList = () => {
-    return dispatch => {
-        return axiosIns.get("/api/course/list").then(res => {
+    return (dispatch, getState, $axios) => {
+        return $axios.get("/api/course/list").then(res => {
             const {list} = res.data;
             console.log("update list: ", list);
             dispatch(changeList(list));

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getIndexList } from '../action/mainAction'
+import { getIndexList } from '../../action/mainAction'
+import withStyle from '../../WithStyle'
+import styles from './Index.css'
 function Index(props) {
     const [count, setCount] = useState(1);
     useEffect(() => {
@@ -9,8 +11,8 @@ function Index(props) {
             props.getIndexList();
         }
     }, [])
-    return <>
-                <h1>This is my demo react SSR, provied by {props.title}</h1>
+    return <div className={styles.container}>
+                <h1 className={styles.title}>This is my demo react SSR, provied by {props.title}</h1>
                 <p>if you like it, please star it. current star is {count}🌟</p>
                 <button onClick={() => setCount(count+1)}>点赞👍</button>
                 <hr/>
@@ -21,7 +23,7 @@ function Index(props) {
                         })
                     }
                 </ul>
-           </>
+           </div>
 }
 
 Index.loadData = (store) => {
@@ -34,4 +36,4 @@ export default connect(
         list: state.index.list
     }),
     { getIndexList }
-)(Index);
+)(withStyle(Index, styles));

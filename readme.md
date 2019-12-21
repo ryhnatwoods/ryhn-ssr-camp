@@ -72,3 +72,17 @@ TypeError: Cannot read property 'location' of undefined
 通过捕获异常信息设置Promise.resolve的方式。使promise不会中断执行。
 
 配置proxy，允许非跨域的网络请求
+
+安装做同构应用的style-loader
+
+## 17/18 节 总结使用promise包装有问题的api，记录错误日志，同时返回promise对象以保障程序的正常运行
+            分别使用，客户端和服务端的axios实例，安装http-middleware-proxy，代理客户端的请求实现跨域
+
+## 19 节， 添加favcon
+
+## 20 节， wepback配置style-loader,css-loader, 添加全局的css
+
+## 21, 22, 23, 24 节, 添加错误状态码支持，  服务层面优化，当服务端压力过大，可以进行横向扩展，通过将同一应用部署在多个node服务节点，利用网关的负载均衡来提高服务的性能， 对于降级渲染
+可以采用关闭服务端渲染直接进行客户端渲染的方式
+
+## 25， 26优化css组件，实现服务端css模块化

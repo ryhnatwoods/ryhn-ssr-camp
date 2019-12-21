@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getUserDetail } from '../action/userAction'
+import { getUserDetail } from '../../action/userAction'
+import styles from './User.css'
+import { Redirect } from 'react-router-dom';
 function User(props) {
+    //need login
+    // return <Redirect to='/about'></Redirect>;
     useEffect(() => {
         const data = props.user;
         if(Object.keys(data).length === 0 && data.constructor === Object){
@@ -17,8 +21,8 @@ function User(props) {
         "flexDirection": "row",
         "justifyContent": "space-between"
     }
-    return (<>
-                <h1>用户详细信息预览</h1>
+    const Userinfo = (<>
+                <h1 className={styles.title}>用户详细信息预览</h1>
                 <hr />
 
                 <div style={columnStyle}>
@@ -39,7 +43,9 @@ function User(props) {
                         <div>{props.user.post}</div>
                     </div>
                 </div>
-           </>)
+           </>);
+    
+    return Userinfo;
 }
 
 User.loadData = (store) => {

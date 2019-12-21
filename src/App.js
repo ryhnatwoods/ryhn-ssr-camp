@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { Route } from 'react-router-dom'
 import Index from './container/Index'
-import About from './container/About'
-import User from './container/User'
-
+import About from './container/About/About'
+import Login from './container/Login'
+import User from './container/User/User'
+import Notfound from './container/notfound/404'
+// import './App.css'
 // export default (
 //     <>
 //         <Route path="/" exact component={Index}></Route>
@@ -15,7 +16,7 @@ import User from './container/User'
 export default [
     {
         path: "/",
-        // exact: true,
+        exact: true,
         component: Index,
         key: "index"
     },
@@ -26,9 +27,19 @@ export default [
         key: "about"
     },
     {
+        path: "/login",
+        exact: true,
+        component: Login,
+        key: "login"
+    },
+    {
         path: "/user",
         exact: true,
         component: User,
         key: "user"
+    },
+    {
+        component: Notfound,
+        key: "404"
     }
 ];
